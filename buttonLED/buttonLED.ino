@@ -1,13 +1,26 @@
 #include <Arduino.h>
 
-double pinNum = 13;
+const int buttonPin = 2;
+const int ledPin = 13;
+
+int buttonState;
 
 void setup()
 {
-    pinMode(pinNum, OUTPUT);
-    digitalWrite(pinNum, HIGH); // sets the digital pin 13 on
+    pinMode(ledPin, OUTPUT);
+    pinMode(buttonPin, INPUT);
 }
 
 void loop()
 {
+    buttonState = digitalRead(buttonPin);
+
+    if (buttonState == HIGH)
+    {
+        digitalWrite(ledPin, HIGH);
+    }
+    else
+    {
+        digitalWrite(ledPin, LOW);
+    }
 }
